@@ -1,5 +1,7 @@
 #################### Basic Terminology of Git ########################
 
+#############Explaination for the Different Commands and the Question arising while reading it##########################################
+
 >> VCS or SCM >>It is tool that manages different versions of the source code
 
 >> Commit: At the time we save our code while suppose editing a docs, at that time it takes the snapshots of that time's files content looks and stores a reference to that snapshots.
