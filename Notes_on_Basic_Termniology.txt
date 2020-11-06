@@ -1,6 +1,17 @@
 #################### Basic Terminology of Git ########################
 
->> VCS or SCM >>It is tool that manages different versions of the source code
+#############Explaination for the Different Commands and the Question arising while reading it##########################################
+
+>>What is Git?
+
+Git doesn't store data as a series of changesets or differences, but instead as a series of snapshots.
+
+
+
+
+>> VCS or SCM >>It is tool that manages different versions of the source code. There are different types of SVN tools which we should deal with which are:
+	>>> Centralized VCS
+	>>> Distributed VCS
 
 >> Commit: At the time we save our code while suppose editing a docs, at that time it takes the snapshots of that time's files content looks and stores a reference to that snapshots.
 
@@ -182,9 +193,6 @@ Git keeps tracks of everything for about 30 days before it completely erases any
 
 	^ - indicates  the parent commit
 	~ - indicates the first parent commit. 	
-
-	
-	
 	Reverses the given commit for the SHA number
 
 >>git reset command:
@@ -196,4 +204,9 @@ Git keeps tracks of everything for about 30 days before it completely erases any
     > move commited changes to the staging index --> Flag ==> --soft
     > unstage commited changes 
     > move the changes to the working directory --> Flag ==> --mixed 
+
+>>git origin push:
+	It is a command which allows your work to get commited to a central remote repo which will act as an extra source(backup) area where you can possibly locate your data in case some data breaching or deletion of current available data happens.
+
+
 		
