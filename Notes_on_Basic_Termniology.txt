@@ -1,0 +1,199 @@
+#################### Basic Terminology of Git ########################
+
+>> VCS or SCM >>It is tool that manages different versions of the source code
+
+>> Commit: At the time we save our code while suppose editing a docs, at that time it takes the snapshots of that time's files content looks and stores a reference to that snapshots.
+
+>> repo :A repo is a directory which contains the project works as well as few related files. They can exist either locally on your computer or as a remote copy on another computer. A repo is made up of commits.
+
+>> Working Directory : It is the files that you see in your computer file's system. When working with Git, the Working Directory is also different from the command line's concept of the current working directory which is the directory that your shell is "looking at" right now.
+
+>> Checkout : A checkout is when content in the repository has been copied to the Working Directory.
+
+>> Staging area/Staging Index/Index :
+A file in the Git directory that stores info about what will go into your next commit. You can think og the staging area as a prep table where Git will take the next commit. Files on the Staging Index are poised to be added to the repository.
+
+>> SHA(Secure Hash Algorithm) : It is a unique 40-character string composed of characters (0-9 and a-f) and calclated based on the contents of the file or directory structure in git.
+
+>> Branch : It is when a new-line of development is created that diverges from the main line of development. The key thing that makes branches imncredibly powerful is that you can make save points on one branch, and then switch to a different branch and make save points there too.
+
+>> diff : It takes 2 files to be compared. Outputs a hunk of text that tells you how to change first file into second file 
+		" - " -symbol give info about the line which were deleted while commiting.
+		" + " -symbol give info about the line which were added while commiting.
+
+>> patch : Read hunks of texts produced by diff and apply them to files, in order to transform the old files into the new versions.
+
+>> git init : Running the command sets up all of the necessary files and directories that Git will use to keep track of everything. All of these files are stored in a directory called .git( where . at the beginning- that means it will be hidden directory on Mac/Linux). The .git is a "repo". This is where git records all of the commands and keeps track of all of the commits.
+
+>> Git Repo Folder Files : 
+    >> config file: It is where all projects specific configuration settings are stored. This values are specific for a repo.
+
+    >> description file: This file is only used by the GitWeb program, which we can ignore.
+
+    >> hooks directory: It is where we could place client-side or server-side scripts that we can use to hook into Git's different lifecycle events. The dir can be used to hook into different parts or events of Git's workflow.
+
+    >> info directory: contains the global excludess file.
+
+    >> objects dir: This directory will store all of the commits we make.
+
+    >> refs directory: This directory holds pointers to commits(basicall the "branch" and "tags".	
+ 
+
+>> git status : It is the key to the mind of Git. It tells us what Git is thinking and the state of our repository as Git sees it. The output will change depending on if files have been added/deleted/modified, what's on the staging index, and the state of the repository.
+
+>>git log: Displays info about the existing commits. There are various useful flags embedded for enhancing the functionality:
+
+     >>  --oneline - It will only display two things in a list format. The initial 7 SHA digits and the short message for commit on the command line. 
+
+     >> --stat : It will show the complete info as seen normally with additional details related to specific changes made to which file and how many lines were modified in that commit interval.
+
+    >> -p : This flag is used to display the actual changes made to a file. The flag is --patch which can be shortened to just -p
+
+    >> -w : This flag upon used with other's will print info by ignoring whitespaces changes.
+
+    >> git log -p 566sd4 : Means if a specific SHA info is needed then by providing the same key letters could be obtained.
+
+>> git show: Displays info about the given commit. It will require a SHA key for showing specific commit related info, which if not provided will show info for the recent commit.
+
+    >> git show jsj62a
+
+>>git add : Will add the changes made to the working directory to the staging index. For making any commit, off which prior we need to run this command by providing the file name in which changes are made.
+
+	git add index.html css/app.css js/app.js
+	git add . 
+The above second method will check for modification in complete project and pass the changed files to the staging area.
+
+
+>>git commit: Will take files from the staging index and save them in the repository. There are multiple way with different flags of performing the commit in git repo.
+
+     >> First, you need to decide for the editor in which your file will get open and allow you to add a comment for a particular commit you made.
+	git config --global core.editor vim 
+	
+	where, vim is a editor name for adding commit heading. The editor selection is completely avaiable with great flexibility e.g 
+Sublime, Notepadd++, etc. which you should provide complete path of the editor till the .exe file.
+
+    >>Second Step: You need to set the editor for one single time which is considered same for every instance. Now we can use commit command in following manner:
+    
+	1. git commit : It will initialize the vim editor mode to edit the commit message for a particular commit.
+
+	2. git commit -m "Some commit message" : This method will bypass the above procedure and will commit the changes to the repo.
+
+>>git diff: Will displays the difference between two versions of a file. It is similar to git log -p command used before.
+
+>>git ignore : If in a repo of git, I do not want to commit a certain file which is present into the directory. In such case I could use this command for ignoring such file.
+         Stages:
+	1. Add following text to the document modified which should not be commited to the repo as : .gitignore
+	2. Afterwards, check the status where it shows the status as untrackable.
+
+>>git tag : Adds tags to specific commits.
+
+>>git branch : Allows multiple lines of development. It allows for multiple users to work on the same project.
+
+>>git checkout : Switch between different branches and tags.
+
+>>git merge: Automatically allows combines changes from different branches.
+ 
+>>git tag: It helps giving special identity to a specific commit instance, where we  suppose made 10 commit for developing the first version of a software which we can notify for the 10th commit with the use of tag which will be named as "v1.0". So, this command in this passion in git.
+	
+	git tag -a v1.0
+
+For adding to any specific previous commit:
+	git tag -a v2.0 a875sd2
+
+The flag tells Git to create an annotated flag. If the flag is not provided, then it'll create what's called a lightweight flag.
+
+For modifying the already used tag in the repo, we could use following flag: 
+	git tag -d v1.0
+	git tag --delete v1.0
+
+>> What is the importance of giving annotated flag?
+    It helps in getting:
+	the person who made the tag
+	the date the tag was made
+	a message for the tag
+
+>>  The "Head" in the git is important as it points to the active branch, and the commit are made to the branch which are active and this way head has an important role in git.
+for e.g if it is pointing to master, then the commit will be take place in master whereas on the other side i the same head is pointing to some other branch then the commit is appended to that branch and not the master branch.
+It is checked and set by using the checkout command. 
+ 
+	>> git checkout branch_name
+>> git branch : It is used to interact with Git's branches. It can be used for:
+	
+	> list all branch names in the repo
+	> creates new branches
+	> delete branches.
+
+>> What is the purpose of using branch in a git-project?
+    A branch is used to do development or make a fix to the project that won't affect the project(since the changes are made on a branch). Once you make changes on the branch, you can combine that branch into the master branch(this combining of branches is called "merging").
+
+>> git branch -d branch_name  --> Used for deleting a specific branch under the condition that master branch is checkout.
+
+>> If git allows to delete a branch and under which circumstances?
+   It do allows deleting a branch on the repo, but you need to move(checkout) to some other branch of repo.
+   But, if the branch contents are unique and are not foundable in other branch, then under such circumstances, git will not allow you to delete the content of the branch.
+
+   But if the user wants, then forcefullly he can delete that branch from the repo:
+	git branch -D branch_name
+ 
+
+>> How can you shift to the new branch which has not been yet created in git?
+ That means, we need to checkout to a branch which is not created and hence in one step, we will create that and checkout to that branch.
+	
+	git checkout -b new-footer-branch
+
+>> Which commands will be useful for showing the changes made to individual branches?
+
+	>git log --oneline --decorate --graph --all			
+
+ --graph ---> This flag adds the bullets and lines to the leftmost part of the output.
+
+>> git merge :It is used to combine branches in git.
+
+	>git merge branch_namr_tobe_merged
+
+    >>Types are:
+	>>Fast_Forward Merge: Here, the branch being merged in must be ahead of the chcek out branch's pointer will just be moved forward to point to the same point to the same commit as the other branch.
+	
+	>>Regular Merge: The two divergent branches are combined and a merge commit is created.
+
+>> Git Merge Conflict: A merge conflict happens when the same line or lines have been changes on different branches that are being merged. Git will pause mid-merge telling you that there is a conflict and will tell you in what file or files the conflict occured.
+     >>For removing the conflicts:
+	> locate and remove all lines with merge conflict indicators.
+	> determine what to keep
+	> save the file 
+	> stage the file
+	> make a commit.
+
+>> git commit --amend
+	Alter the most recent commit. It will let you include files(or changes to files) you might've forgotten to include.
+
+>> git revert SHA
+	Whenever git reverts a specific commit, Git takes the chances that were made in commit A, if git reverts commit A, then Git will make a new commit where that character is deleted. It also works the other way where if a character/line is removed, then reverting that commit will add that content back.
+
+>> Reset vs Revert in Git?
+    Reverting crates a new commit that reverts or undos a previous commit. Resetting on other hand, erases commits.
+
+>> If git has any mechanism for recycling the deleted commits for any chance of recovery?
+
+Git keeps tracks of everything for about 30 days before it completely erases anything. To access this content, we must use the following command as:  	git reflog
+
+>> How to utilize the relative commit references?
+  > There are times when we will need to tell Git about the commit that's one before the current commit or two before the current commit. There are special characters called "Ancestry References" that we can use to tell Git about these relative references.
+
+	^ - indicates  the parent commit
+	~ - indicates the first parent commit. 	
+
+	
+	
+	Reverses the given commit for the SHA number
+
+>>git reset command:
+  > git erase command is used to reset(erase) commits:
+	git reset <reference-to-commit>
+  > It can be used to:
+    > move to HEAD and current branch pointer to the referenced commit
+    > erase commit   --> Flag ==> --hard 
+    > move commited changes to the staging index --> Flag ==> --soft
+    > unstage commited changes 
+    > move the changes to the working directory --> Flag ==> --mixed 
+		
