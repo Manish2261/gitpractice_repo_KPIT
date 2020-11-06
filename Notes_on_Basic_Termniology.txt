@@ -182,9 +182,6 @@ Git keeps tracks of everything for about 30 days before it completely erases any
 
 	^ - indicates  the parent commit
 	~ - indicates the first parent commit. 	
-
-	
-	
 	Reverses the given commit for the SHA number
 
 >>git reset command:
@@ -196,4 +193,9 @@ Git keeps tracks of everything for about 30 days before it completely erases any
     > move commited changes to the staging index --> Flag ==> --soft
     > unstage commited changes 
     > move the changes to the working directory --> Flag ==> --mixed 
+
+>>git origin push:
+	It is a command which allows your work to get commited to a central remote repo which will act as an extra source(backup) area where you can possibly locate your data in case some data breaching or deletion of current available data happens.
+
+
 		
